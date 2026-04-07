@@ -2,9 +2,9 @@
 
 ## Descripción
 
-Este proyecto contiene una simulación de un sistema de login de la Universidad Europea implementado en dos versiones:
+Este proyecto contiene una simulación de un sistema de login de la Universidad Europea implementado :
 
-* Python
+
 * Java (JavaFX)
 
 El objetivo es practicar el desarrollo de interfaces y lógica básica de autenticación.
@@ -13,19 +13,11 @@ El objetivo es practicar el desarrollo de interfaces y lógica básica de autent
 
 ## Estructura del proyecto
 
-### 🔹 1. universidad_europea_login (Python)
 
-Aplicación desarrollada en Python.
 
-Contiene:
 
-* `main.py` → ejecución principal
-* `login.py` → lógica del login
-* `ue.png` → imagen de la interfaz
 
----
-
-### 🔹 2. universidad_europea_login_java (Java)
+### 🔹  universidad_europea_login_java (Java)
 
 Aplicación desarrollada en Java con JavaFX.
 
@@ -48,7 +40,7 @@ Contiene:
 
 ## Tecnologías utilizadas
 
-* Python
+
 * Java
 * JavaFX
 * Maven
