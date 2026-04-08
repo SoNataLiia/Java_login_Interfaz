@@ -1,16 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.northwind.universidad_europea_login_java.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<VBox spacing="0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.northwind.universidad_europea_login_java.HelloController"
+      style="-fx-background-color: white;">
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
+    <!-- CABECERA: просто текст, логотип можно добавить позже -->
+    <HBox spacing="12" alignment="CENTER_LEFT" style="-fx-background-color: white;">
+        <padding><Insets top="12" right="20" bottom="12" left="20"/></padding>
+        <Label text="Universidad&#10;Europea">
+            <font><Font name="Arial Bold" size="18"/></font>
+        </Label>
+    </HBox>
+
+    <!-- FORMULARIO: поля ввода -->
+    <VBox spacing="6" style="-fx-background-color: white;">
+        <padding><Insets top="16" right="20" bottom="8" left="20"/></padding>
+
+        <Label text="NOMBRE"/>
+        <!-- fx:id должен совпадать с @FXML private TextField campoNombre в Controller -->
+        <TextField fx:id="campoNombre"/>
+
+        <Label text="CONTRASEÑA"/>
+        <PasswordField fx:id="campoContrasena"/>
+
+        <Label text="CARGO"/>
+        <!-- ComboBox заполняется в initialize() Controller, не здесь -->
+        <ComboBox fx:id="comboCargo" maxWidth="Infinity"/>
+
+        <!-- TextArea для сообщений, editable=false — нельзя редактировать -->
+        <TextArea fx:id="areaTexto" prefHeight="90" editable="false" wrapText="true">
+            <VBox.margin><Insets top="10"/></VBox.margin>
+        </TextArea>
+    </VBox>
+
+    <!-- TABLA: список пользователей -->
+    <VBox spacing="4" style="-fx-background-color: white;">
+        <padding><Insets top="8" right="20" bottom="8" left="20"/></padding>
+        <Label text="Usuarios válidos:">
+            <font><Font name="Arial Bold" size="10"/></font>
+        </Label>
+        <!-- TableView заполняется данными в initialize() Controller -->
+        <TableView fx:id="tablaUsuarios" prefHeight="110">
+            <columns>
+                <TableColumn fx:id="colNombre"    text="Nombre"     prefWidth="140"/>
+                <TableColumn fx:id="colContrasena" text="Contraseña" prefWidth="140"/>
+                <TableColumn fx:id="colCargo"     text="Cargo"      prefWidth="140"/>
+            </columns>
+        </TableView>
+    </VBox>
+
+    <!-- BOTONES: onAction="#метод" — ссылка на метод в Controller -->
+    <HBox spacing="10" alignment="CENTER">
+        <padding><Insets top="12" right="20" bottom="16" left="20"/></padding>
+        <Button text="LIMPIAR" onAction="#accionLimpiar" prefWidth="120" prefHeight="34"/>
+        <Button text="ENTRAR"  onAction="#accionEntrar"  prefWidth="120" prefHeight="34"/>
+        <Button text="SALIR"   onAction="#accionSalir"   prefWidth="120" prefHeight="34"/>
+    </HBox>
+
 </VBox>
